@@ -13,8 +13,7 @@ pipeline {
     stage('Code Quality'){
       when {
         allOf {
-          branch 'main'
-            expression { env.TAG_NAME != env.GIT_BRANCH }
+          expression { env.TAG_NAME != env.GIT_BRANCH }
         }
       }
       steps {
@@ -25,7 +24,10 @@ pipeline {
 
     stage('Unit Tests'){
       when {
-        branch 'main'
+        allOf {
+          expression { env.TAG_NAME != env.GIT_BRANCH }
+          branch 'main'
+        }
       }
       steps {
         // Ideally we should run the tests , But here the developer have skipped it. So assuming those are good and proceeding
