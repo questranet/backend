@@ -11,10 +11,10 @@ pipeline {
 
     stage('Code Quality'){
       when {
-        allOf {
-          branch 'main'
-            //expression { env.TAG_NAME != env.BRANCH_NAME }
-        }
+ //     allOf {
+ //         branch 'main'
+ //           expression { env.TAG_NAME != env.BRANCH_NAME }
+ //       }
       }
       steps {
         sh 'sonar-scanner -Dsonar.host.url=http://172.31.45.154:9000 -Dsonar.login=admin -Dsonar.password=admin123 -Dsonar.projectKey=backend -Dsonar.qualitygate.wait=true'
