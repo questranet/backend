@@ -25,8 +25,11 @@ pipeline {
 
     stage('Unit Tests'){
       when {
-        allOf {
+        when {
+          allOf {
+            expression { env.GIT_BRANCH == 'origin/main' }
           branch 'main'
+          }
         }
       }
       steps {
