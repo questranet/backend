@@ -1,3 +1,3 @@
-source /parameters/params
+source /config/params
 
 node /app/index.js
