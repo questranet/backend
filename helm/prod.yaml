@@ -8,7 +8,7 @@ service:
 initContainers:
   enabled: true
   imageVersion: 1.0.0
-  INPUT: "DB_HOST, prod.rds.endpoint"
+  INPUT: "DB_HOST,prod.rds.endpoint"
 
 job:
   enabled: true
